@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookVerse - Sua Biblioteca Digital</title>
+    
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="atoms/buttom.css">
+    <link rel="stylesheet" href="atoms/price.css">
+    <link rel="stylesheet" href="molecules/card.css">
+    <link rel="stylesheet" href="molecules/alert.css">
+    <link rel="stylesheet" href="organism/nav-bar.css">
+    <link rel="stylesheet" href="organism/catalog.css">
+    <link rel="stylesheet" href="organism/form-field.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar--fixed">
+        <div class="navbar__logo">BookVerse</div>
+        <div class="navbar-search">
+            <input type="text" id="search-input" placeholder="Buscar livros..." class="navbar-search-input">
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="#catalog" class="navbar__link">Catálogo</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#admin" class="navbar__link" id="admin-link">Administração</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <h1>Bem-vindo ao BookVerse</h1>
+            <p>Descubra mundos incríveis através da leitura</p>
+        </header>
+
+        <section id="catalog" class="catalog-section">
+            <h2>Nosso Catálogo</h2>
+            <div id="catalog-grid" class="catalog-grid">
+            </div>
+        </section>
+    </main>
+
+    <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-overlay">
+            <div class="admin-content">
+                <div class="admin-header">
+                    <h2>Painel Administrativo</h2>
+                    <button id="close-admin" class="btn btn--danger">✕</button>
+                </div>
+                
+                <div id="admin-login" class="admin-login">
+                    <h3>Login</h3>
+                    <form id="login-form">
+                        <input type="password" id="admin-password" placeholder="Digite a senha">
+                        <button type="submit" class="btn btn--primary">Entrar</button>
+                    </form>
+                </div>
+
+                <div id="admin-dashboard" class="admin-dashboard hidden">
+                    <button id="add-book-btn" class="btn btn--primary">+ Adicionar Livro</button>
+                    
+                    <div id="book-form" class="book-form hidden">
+                        <h3 id="form-title">Adicionar Livro</h3>
+                        <form id="book-form-element">
+                            <input type="text" id="book-title" placeholder="Título" required>
+                            <input type="text" id="book-author" placeholder="Autor" required>
+                            <input type="number" id="book-price" placeholder="Preço" step="0.01" required>
+                            <select id="book-image" required>
+                                <option value="">Selecione uma imagem</option>
+                                <option value="img/imagem_1.jpg">Imagem 1</option>
+                                <option value="img/imagem_2.jpg">Imagem 2</option>
+                                <option value="img/imagem_3.jpg">Imagem 3</option>
+                                <option value="img/imagem_4.jpg">Imagem 4</option>
+                                <option value="img/imagem_5.jpg">Imagem 5</option>
+                            </select>
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn--primary">Salvar</button>
+                                <button type="button" class="btn" id="cancel-form-btn">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="admin-books">
+                        <h3>Livros Cadastrados</h3>
+                        <div id="admin-books-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
